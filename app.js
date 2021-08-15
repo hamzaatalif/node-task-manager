@@ -10,14 +10,14 @@ require("dotenv").config()
 const port = process.env.Port || 3000 ;
 
 // middleware
-
+app.use(express.static("./public"))
 app.use(express.json());
 
 // initial router
 
-app.get("/hello",(req,res)=>{
-    res.send("Task Manager Api");
-})
+// app.get("/hello",(req,res)=>{
+//     res.send("Task Manager Api");
+// })
 
 app.use("/api/v1/tasks",tasks)
 
