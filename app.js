@@ -3,6 +3,7 @@ const app = express();
 
 const tasks = require('./routes/tasks')
 const notFound = require("./middleware/not-found")
+const errorHandlerMiddleware = require("./middleware/error-handler");
 
 const connectDB = require("./db/connect")
 
@@ -14,6 +15,7 @@ const port = process.env.Port || 3000 ;
 app.use(express.static("./public"))
 app.use(express.json());
 app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 // initial router
 
