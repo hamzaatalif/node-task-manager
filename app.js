@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const tasks = require('./routes/tasks')
+const notFound = require("./middleware/not-found")
 
 const connectDB = require("./db/connect")
 
@@ -12,6 +13,7 @@ const port = process.env.Port || 3000 ;
 // middleware
 app.use(express.static("./public"))
 app.use(express.json());
+app.use(notFound)
 
 // initial router
 
